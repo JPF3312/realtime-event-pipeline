@@ -2,7 +2,7 @@
 
 A high-throughput, event-driven analytics pipeline built with Node.js, Apache Kafka (Redpanda), Redis (Pub/Sub & Caching), and WebSockets. Designed for async event ingestion, real-time metrics aggregation, and low-latency dashboard streaming.
 
-## 🏗 Architecture Overview
+##  Architecture Overview
 
 ```text
   +--------------------+
