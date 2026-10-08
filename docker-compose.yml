@@ -1,0 +1,23 @@
+services:
+  redpanda:
+    image: docker.redpanda.com/redpandadata/redpanda:v23.3.10
+    container_name: kafka_broker
+    command:
+      - redpanda start
+      - --kafka-addr internal://0.0.0.0:9092,external://0.0.0.0:19092
+      - --advertise-kafka-addr internal://redpanda:9092,external://localhost:19092
+      - --pandaproxy-addr 0.0.0.0:8082
+      - --advertise-pandaproxy-addr localhost:8082
+      - --schema-registry-addr 0.0.0.0:8081
+      - --mode dev-container
+      - --smp 1
+    ports:
+      - "19092:19092"
+      - "8081:8081"
+      - "8082:8082"
+
+  redis:
+    image: redis:7-alpine
+    container_name: redis_analytics
+    ports:
+      - "6380:6379"
